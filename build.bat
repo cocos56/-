@@ -1,0 +1,1 @@
+pyinstaller -F -c 同步文件夹.py --distpath .
