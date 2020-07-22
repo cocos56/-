@@ -1,27 +1,24 @@
 from os import walk
 from os.path import join
-from Config.api import workDirs
 
 files = []
 dirs = []
 
 
-def init():
+def init(workDir):
     files.clear()
     dirs.clear()
-    for workDir in workDirs:
-        for root, ds, fs in walk(workDir):
-            for i in fs:
-                temp = join(root, i)
-                files.append(temp)
-            for i in ds:
-                temp = join(root, i)
-                dirs.append(temp)
+    for root, ds, fs in walk(workDir):
+        for i in fs:
+            temp = join(root, i)
+            files.append(temp)
+        for i in ds:
+            temp = join(root, i)
+            dirs.append(temp)
 
 
-def getFiles(initFlag=True):
-    if initFlag:
-        init()
+def getFiles(workDir):
+    init(workDir)
     return files
 
 

@@ -1,2 +1,2 @@
-from .mysql import insertToChangVideoSpeed, commit, insertToDelStr, insertToT
+from .mysql import commit, insertToFiles, insertToT
 

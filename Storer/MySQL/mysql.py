@@ -1,4 +1,4 @@
-from .Config.api import query, commit, Timestamp
+from .Config.api import query, commit
 from pymysql import escape_string
 
 
@@ -10,37 +10,11 @@ def insertToT():
     commit()
 
 
-def insertToChangVideoSpeed(path, speed, duration,
-                            oldSize, newSize, oldFPS, newFPS,
-                            oldWidth, oldHeigh, newWidth, newHeigh):
-    cmd = r"""insert into chang_video_speed
-    (`year`, `month`, `day`, `hour`, `minute`,
-    `second`, `path`, `speed`, `duration`,
-    `oldSize`, `newSize`, `oldFPS`, `newFPS`,
-    `oldWidth`, `oldHeigh`, `newWidth`, `newHeigh`)
-    value('%s', '%s', '%s', '%s', '%s',
-    '%s', '%s', '%s', '%s',
-    '%s', '%s', '%s', '%s',
-    '%s', '%s', '%s', '%s')
-    """ % (Timestamp.year, Timestamp.month, Timestamp.day, Timestamp.hour, Timestamp.minute,
-           Timestamp.second, escape_string(path), speed, duration,
-           oldSize, newSize, oldFPS, newFPS,
-           oldWidth, oldHeigh, newWidth, newHeigh)
+def insertToFiles(filePath, md5):
+    cmd = r"""insert into files
+    (`path`, `md5`)
+    value('%s', '%s')
+    """%(escape_string(filePath), md5)
     print(cmd)
     query(cmd)
-    # commit()
-
-
-def insertToDelStr(fatherDir, oldName, newName):
-    cmd = r"""insert into del_str
-        (`year`, `month`, `day`, `hour`, `minute`,
-        `second`, `fatherDir`, `oldName`, `newName`)
-        value('%s', '%s', '%s', '%s', '%s',
-        '%s', '%s', '%s', '%s')
-        """ % (Timestamp.year, Timestamp.month, Timestamp.day, Timestamp.hour, Timestamp.minute,
-               Timestamp.second, escape_string(fatherDir), oldName, newName)
-    print(cmd)
-    query(cmd)
-    # commit()
-
-
+    commit()

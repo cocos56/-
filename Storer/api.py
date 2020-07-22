@@ -1,1 +1,1 @@
-from .MySQL.api import insertToChangVideoSpeed, commit, insertToDelStr, insertToT
+from .MySQL.api import commit, insertToFiles, insertToT

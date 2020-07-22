@@ -1,1 +1,1 @@
-from .config import query, commit, Timestamp
+from .config import query, commit
