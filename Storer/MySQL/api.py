@@ -1,2 +1,2 @@
-from .mysql import commit, insertToFiles, insertToT
+from .mysql import commit, insertToFiles, insertToT, getMD5FromFiles
 
