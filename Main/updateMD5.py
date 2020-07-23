@@ -4,7 +4,7 @@ from GetHash.api import getMD5
 
 dl = [
 	r'E:\OneDrive - 微信公众号奇乐帮',
-	r'\\1.coco56.top'
+	r'\\1.coco56.top\大型软件',
 ]
 
 
