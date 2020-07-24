@@ -22,5 +22,5 @@ def insertToFiles(filePath, md5):
 def getMD5FromFiles(filePath):
     cmd = r"""select `md5` from files where `path` = '%s'"""\
           % escape_string(filePath)
-    print(cmd)
+    # print(cmd)
     return query(cmd)
