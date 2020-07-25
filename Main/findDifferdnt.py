@@ -3,16 +3,23 @@ from os.path import exists, dirname
 from os import system
 from Storer.api import getMD5FromFiles
 
+cnt = 0
+
 
 def findDiff(d1, d2):
+	global cnt
 	l1, l2, li = len(d1), len(d2), []
 	for i in getFiles(d1):
+		cnt += 1
+		print(cnt)
 		i2 = d2 + i[l1:]
 		if not exists(i2):
 			li.append([i, dirname(i2), dirname(i)])
-		if getMD5FromFiles(i) != getMD5FromFiles(i2):
-			li.append([i, dirname(i2), dirname(i)])
+	if getMD5FromFiles(i) != getMD5FromFiles(i2):
+		li.append([i, dirname(i2), dirname(i)])
 	for i in getFiles(d2):
+		cnt += 1
+		print(cnt)
 		i2 = d1 + i[l2:]
 		if not exists(d1 + i[l2:]):
 			li.append([i, dirname(i2), dirname(i)])
@@ -43,7 +50,7 @@ ds = [
 	# 	r'\\1.coco56.top\稀缺资源'
 	# ),
 	(
-		r'E:\OneDrive - Office Everyday\学习视频',
+		r'E:\OneDrive - 美国乡村蹲不下学院\学习视频',
 		r'\\1.coco56.top\学习视频'
 	),
 ]

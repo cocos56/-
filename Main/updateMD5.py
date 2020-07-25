@@ -3,8 +3,7 @@ from Path.api import getFiles
 from GetHash.api import getMD5
 
 dl = [
-	r'E:\OneDrive - 微信公众号奇乐帮',
-	r'E:\OneDrive - Office Everyday\学习视频'
+	r'E:\OneDrive - 美国乡村蹲不下学院\学习视频'
 ]
 
 
